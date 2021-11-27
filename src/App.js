@@ -1,6 +1,7 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import Nav from './Components/Nav/Nav';
+//import Nav from './Components/Nav/Nav';
+import NavBs from './Components/NavBS/NavBs';
 
 function App() {
   return (
@@ -12,14 +13,15 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://reactjs.org"np
           target="_blank"
           rel="noopener noreferrer"
         >
           Learn React
         </a>
   </header>*/}
-      <Nav />
+      {/*<Nav />*/}
+      <NavBs />
     </div>
   );
 }
