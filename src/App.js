@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
 //import Nav from './Components/Nav/Nav';
 import NavBs from './Components/NavBS/NavBs';
 
@@ -22,6 +23,13 @@ function App() {
   </header>*/}
       {/*<Nav />*/}
       <NavBs />
+
+      <ItemListContainer />
+      <ItemListContainer />
+      <ItemListContainer />
+      <ItemListContainer />
+      <ItemListContainer />
+      
     </div>
   );
 }

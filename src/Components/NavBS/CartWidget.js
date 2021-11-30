@@ -9,10 +9,13 @@ export const CartWidget = () => {
             <ul className="nav navbar-nav navbar-right">
                 <li className="dropdown">
                     <a href="/#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <FontAwesomeIcon icon={faCartShopping} /> Cart
+                        <FontAwesomeIcon icon={faCartShopping} /> 0
                     </a>
                 </li>
             </ul>
         </div>
     )
 }
+
+
+export default CartWidget
