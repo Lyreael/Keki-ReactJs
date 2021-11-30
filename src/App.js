@@ -25,10 +25,6 @@ function App() {
       <NavBs />
 
       <ItemListContainer />
-      <ItemListContainer />
-      <ItemListContainer />
-      <ItemListContainer />
-      <ItemListContainer />
       
     </div>
   );

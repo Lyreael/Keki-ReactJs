@@ -3,9 +3,15 @@ import './style.scss';
 import ItemCount from '../ItemCount';
 
 export const ItemListContainer = () => {
+
+    const onAddItem = () => {
+        console.log('add item');
+    };
+
+
     return (
         <div className = "container card-group" >
-            <ItemCount />
+            <ItemCount onAdd={onAddItem} stock="7" />
         </div>
     )
 }
