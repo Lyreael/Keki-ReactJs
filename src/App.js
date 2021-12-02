@@ -2,7 +2,7 @@
 import './App.css';
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
 //import Nav from './Components/Nav/Nav';
-import NavBs from './Components/NavBS/NavBs';
+import NavBs from './Components/Navbar/NavBs';
 
 function App() {
   return (
@@ -23,7 +23,6 @@ function App() {
   </header>*/}
       {/*<Nav />*/}
       <NavBs />
-
       <ItemListContainer />
       
     </div>
