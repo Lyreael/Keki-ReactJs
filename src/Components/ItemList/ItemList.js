@@ -1,10 +1,10 @@
 import React from 'react'
 import Item from '../Item/Item'
 
-const ItemList = ({items}) => {
+const ItemList = ({products = []}) => {
     return (
         <div>
-            { items.map((item) => <Item key={item.id} item={item} /> ) } 
+            { products.map((product) => <Item key={product.id} product={product} /> ) } 
         </div>
     )
 }

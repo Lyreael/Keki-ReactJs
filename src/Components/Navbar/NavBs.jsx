@@ -3,6 +3,7 @@ import CartWidget  from "./CartWidget";
 
 
 
+
 const NavBS = () => {
   return (
     <div>
@@ -24,37 +25,9 @@ const NavBS = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/#">
-                  Inicio
-                </a>
-              </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle"
-                  href="/#"
-                  id="navbarDropdownMenuLink"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"> 
-                  Tienda</a>
-                  <ul className="dropdown-menu" ria-labelledby="navbarDropdownMenuLink">
-                    <li>
-                    <a className="dropdown-item" href="/#">
-                      Seccion 1
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/#">
-                      Seccion 2
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/#">
-                      Seccion 3
-                    </a>
-                  </li>
-                  </ul>
-            </li>
+              {/* <Link to={"/"} className='btn'>List</Link>
+              <Link to={"/detail"} className='btn'>Detail</Link>
+              <Link to={"/count"} className='btn'>Count</Link> */}
             <CartWidget />
             </ul>
           </div>
