@@ -1,39 +1,42 @@
-import React from "react";
 import CartWidget  from "./CartWidget";
-
+import { NavLink } from "react-router-dom";
+import "./style.scss"
+import {useEffect, useState } from "react";
+import { getCategories } from "../../products";
+import { NavDropdown } from "react-bootstrap";
 
 
 
 const NavBS = () => {
+  const [categories, setCategories] = useState([])
+
+
+  useEffect(() => {
+    getCategories().then(res => setCategories(res))
+   
+  }, [categories])
+
+
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/#">
-            Keki
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="/#navbarNavDropdown"
-            aria-controls="navbarNavDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul className="navbar-nav">
-              {/* <Link to={"/"} className='btn'>List</Link>
-              <Link to={"/detail"} className='btn'>Detail</Link>
-              <Link to={"/count"} className='btn'>Count</Link> */}
+
+      <nav className="navbar sticky-lg-top navbar-expand-lg">
+
+          <div className="logo"><a className="navbar-brand" href="/#">LOGO </a></div>
+
+          <div className="collapse navbar-collapse main_list" id="navbarNavDropdown">
+            <NavLink to="/" > Inicio </NavLink>
+            {/* <NavLink to="/category"> Categorías </NavLink>
+            { categories.map((category) => <NavLink to={"/category/"+category.id}>{categories.name}</NavLink> ) } 
+             */}
+            <NavDropdown title="Categorías" id="basic-nav-dropdown">
+              { categories.map((category) => <NavLink to={"/category/"+category.id}>{category.description}</NavLink> ) }
+            </NavDropdown>
             <CartWidget />
-            </ul>
           </div>
-        </div>
+
+          
       </nav>
-    </div>
+
   );
 };
 

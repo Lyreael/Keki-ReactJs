@@ -1,6 +1,42 @@
-card-body{
-    padding: 0;
-    margin: 0;
-    width: 1rem;
-    height: 18rem;
+$principal: #9292c9;
+$lighter: #fafafa;
+$white: white;
+$dark: #6868AC;
+$shadow: #d0d0ff;
+$primary : $dark;
+
+.btn-outline-info{
+    border-color: $primary !important;
+    color: $dark !important;
+    &:hover{
+        background-color: $primary !important;
+        color: $white !important;
+    }
+    &:disabled
+     {
+      border-color: #dddddd;
+      color: #dddddd !important;
+      background: #dddddd;
+    }
+    &:focus{
+        box-shadow: 0 0 0 0.2rem rgba($primary, 0.5) !important;
+    }
+}
+
+.btn-outline-danger{
+    border-color: $primary !important;
+    color: $dark !important;
+    &:hover{
+        background-color: $primary !important;
+        color: $white !important;
+    }
+    &:disabled
+     {
+      border-color: #dddddd;
+      color: #dddddd !important;
+      background: #dddddd;
+    }
+    &:focus{
+        box-shadow: 0 0 0 0.2rem rgba($primary, 0.5) !important;
+    }
 }

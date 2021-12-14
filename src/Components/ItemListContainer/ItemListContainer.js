@@ -1,17 +1,17 @@
-import React from "react";
-import "./style.scss";
+
 import ItemList from "../ItemList/ItemList";
 import { useState, useEffect } from "react";
-import { getProducts } from "../../products";
-//import {categoryId} from "../../products";
+import { getProducts, getProductsByCategoryId } from "../../products";
+import  {useParams} from "react-router-dom";
 
 export const ItemListContainer = () => {
 
+  const { categoryId } = useParams()
+
   const [products, setProducts] = useState([]);
-//const [categoryId] = useParams
 
   useEffect(() => {
-    const list = getProducts()
+    const list = categoryId ?  getProductsByCategoryId(categoryId) : getProducts();
     
     list.then(products => {
         setProducts(products)
@@ -21,15 +21,13 @@ export const ItemListContainer = () => {
     return (() => {
         setProducts([])
     })
-}, [])
+}, [categoryId])
 
 
 
   return (
-    <div className="container">
-      <div className="row ">
+    <div className="section">
       <ItemList products={products} />
-      </div>
     </div>
   );
 };

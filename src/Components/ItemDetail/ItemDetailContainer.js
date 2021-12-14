@@ -1,17 +1,19 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, } from 'react'
 import ItemDetail from './ItemDetail'
 import { getProductById } from '../../products'
+import { useParams } from 'react-router-dom'
 
 
 
 // Componente contenedor -> lleva la logica y pedido de datos al componente que se renderiza
-const ItemDetailContainer = ({id}) => {
+const ItemDetailContainer = () => {
 
+    const { paramsId } = useParams()
     const [product, setProduct] = useState()
 
     useEffect  (() => {
-        getProductById(id).then(product => {
-            console.log(product,id)
+        getProductById(paramsId).then(product => {
+            console.log(product, paramsId)
             setProduct(product)
         })
         .catch(error => {
@@ -20,18 +22,16 @@ const ItemDetailContainer = ({id}) => {
         return () => {
             setProduct()
         }
-    }, [id])
+    }, [paramsId])
 
 
 
     return (
-        <div>
-            <h1>Hola</h1>
-            { product?
-            <ItemDetail product={product} />
-            :
-            <h1>Cargando...</h1>
-            }
+        <div className='section'>
+            <div className='row justify-content-center align-items-center'>
+                <h3>Detalles</h3>
+                    { product? <ItemDetail product={product} /> : <h1>Cargando...</h1> }
+            </div>
         </div>
     )
 }

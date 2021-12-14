@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+$principal: #9292c9;
+$lighter: #fafafa;
+$white: white;
+$dark: #6868AC;
+$shadow: #d0d0ff;
+$primary : $dark;
+
+.App {
+  text-align: center;
+  background-color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: $dark;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+.card{
+  background-color: $lighter;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 $shadow;
+  width: auto;
+  height: auto;
+  padding: 20px;
+  margin: 20px;
+  &:hover{
+    box-shadow: 0 4px 15px 0 $shadow;
+  }
+  & .btn-primary{
+    background-color: $principal;
+    border-color: $principal;
+    &:hover{
+      background-color: $primary;
+      border-color: $primary;
+    }
+    &:focus{
+      box-shadow: 0 0 0 0.2rem rgba($primary, 0.5) !important;
+  }
+  }
+  img{
+    max-height: 150px;
+
+    object-fit: contain;
+  }
+}
+
+.section{
+  margin: 2rem;
+}
