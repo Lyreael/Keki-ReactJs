@@ -1,8 +1,8 @@
 import './App.scss';
-import ItemDetailContainer from './Components/ItemDetail/ItemDetailContainer';
-import ItemCount from './Components/ItemCount';
-import ItemListContainer from './Components/ItemListContainer/ItemListContainer';
-import NavBs from './Components/Navbar/NavBs';
+import ItemDetailContainer from './components/itemDetail/ItemDetailContainer';
+import ItemCount from './components/ItemCount';
+import ItemListContainer from './components/itemListContainer/ItemListContainer';
+import NavBs from './components/navbar/NavBs';
 import { BrowserRouter , Route, Switch } from 'react-router-dom';
 
 function App() {

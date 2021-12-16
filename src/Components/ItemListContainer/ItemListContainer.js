@@ -1,8 +1,8 @@
-
 import ItemList from "../ItemList/ItemList";
 import { useState, useEffect } from "react";
 import { getProducts, getProductsByCategoryId } from "../../products";
 import  {useParams} from "react-router-dom";
+
 
 export const ItemListContainer = () => {
 

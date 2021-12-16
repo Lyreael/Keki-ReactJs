@@ -43,7 +43,7 @@ export const getProductsByCategoryId = (categoryId) => {
         const productsFiltered = products.filter(product => product.categoryId === categoryId)
         setTimeout(() => {
             resolve(productsFiltered)
-        }, 1000)
+        }, 1000 )
     }
     )
 }

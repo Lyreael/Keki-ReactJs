@@ -1,7 +1,8 @@
 import React, {useState, useEffect, } from 'react'
-import ItemDetail from './ItemDetail'
 import { getProductById } from '../../products'
 import { useParams } from 'react-router-dom'
+import  Loader  from 'react-loader-spinner'
+import ItemDetail from './ItemDetail'
 
 
 
@@ -30,7 +31,7 @@ const ItemDetailContainer = () => {
         <div className='section'>
             <div className='row justify-content-center align-items-center'>
                 <h3>Detalles</h3>
-                    { product? <ItemDetail product={product} /> : <h1>Cargando...</h1> }
+                    { product? <ItemDetail product={product} /> : <Loader type="Oval" color="#6868AC" height={80} width={80}/> }
             </div>
         </div>
     )
