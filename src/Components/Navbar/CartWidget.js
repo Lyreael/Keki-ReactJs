@@ -1,19 +1,15 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCartShopping} from '@fortawesome/free-solid-svg-icons'
-
+import {CartContext} from '../../context/CartContext';
+import { NavLink} from 'react-router-dom'
 
 export const CartWidget = () => {
+
+    const {quantity} = useContext(CartContext)
+
     return (
-        <div>
-            <ul className="nav navbar-nav navbar-right">
-                <li className="dropdown">
-                    <a href="/#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        <FontAwesomeIcon icon={faCartShopping} /> 0
-                    </a>
-                </li>
-            </ul>
-        </div>
+    <NavLink to={"/cart"}> <FontAwesomeIcon icon={faCartShopping} /> {quantity} </NavLink>
     )
 }
 

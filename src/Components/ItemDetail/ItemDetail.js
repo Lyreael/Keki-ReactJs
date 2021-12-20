@@ -1,18 +1,22 @@
 //import {Link} from 'react-router-dom'
 import ItemCount from '../ItemCount'
-import {useState} from 'react'
-
+import { useContext} from 'react'
+//import { Link } from 'react-router-dom';
+import {CartContext} from '../../context/CartContext';
 
 
 
 // Componente de presentacion -> recibe datos y los muestra al usuario
 const ItemDetail = ({product}) => {
 
-    const [cart , setCart] = useState(true);
+// const [cart , setCart] = useState(true);
 
-    const onAdd = () => {
-        console.log('Agregado al carrito');
-        setCart(false);
+const cartContext = useContext(CartContext)
+
+console.log(cartContext)
+    const onAdd = (count) => {
+        //console.log('Agregado al carrito');
+        cartContext.addItem(product, count)
     }
         
 
@@ -22,13 +26,12 @@ const ItemDetail = ({product}) => {
             <img className="card-img-top" src={product?.img} alt={product?.name}/>
             <div className="card-body">
             <p className="card-text">{product?.description}</p>
-            <p className="card-text"> Stock {product?.stock}</p>
             <p>{product?.price}</p>
             {/* <Link className="btn btn-primary" to={`/count/${product.id}`}>Comprar</Link> */}
-            { cart ? ( <ItemCount onAdd={onAdd} /> ) : ( <button className="btn btn-primary" to={'/cart'}>Finalizar compra</button> ) } 
+            {/* { cart ? ( <ItemCount onAdd={onAdd} /> ) : ( <Link className="btn btn-primary" to={'/cart'}>Finalizar compra</Link> ) }  */}
+            <ItemCount onAdd={onAdd} /> 
             </div>
         </div>
-
     )
 }
 

@@ -6,7 +6,6 @@ import { getCategories } from "../../products"; //traigo la promesa de categoria
 import { NavDropdown } from "react-bootstrap";
 
 
-
 const NavBS = () => {
   const [categories, setCategories] = useState([])
 
@@ -14,20 +13,24 @@ const NavBS = () => {
     getCategories().then(res => setCategories(res)) // ejecuto la funcion getCategories y recibo las categorias
   }, [categories]) 
 
-
   return (
 
       <nav className="navbar sticky-lg-top navbar-expand-lg">
+
           <div className="logo"><a className="navbar-brand" href="/#">LOGO </a></div>
           <div className="collapse navbar-collapse main_list" id="navbarNavDropdown">
-            <NavLink to="/" > Inicio </NavLink>
+
+            <NavLink to="/home" > Inicio </NavLink>
             {/* <NavLink to="/category"> Categorías </NavLink>
             { categories.map((category) => <NavLink to={"/category/"+category.id}>{categories.name}</NavLink> ) } 
              */}
+            
             <NavDropdown title="Categorías" id="basic-nav-dropdown">
               { categories.map((category) => <NavLink to={"/category/"+category.id}>{category.description}</NavLink> ) }  
             </NavDropdown>
+
             <CartWidget />
+
           </div>
       </nav>
   );
