@@ -25,8 +25,6 @@ const ItemDetailContainer = () => {
         }
     }, [paramsId])
 
-
-
     return (
         <div className='section'>
             <div className='row justify-content-center align-items-center'>

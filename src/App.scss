@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap');
 
 $principal: #9292c9;
 $lighter: #fafafa;
@@ -10,7 +11,7 @@ $primary : $dark;
 .App {
   text-align: center;
   background-color: white;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .App-logo {
@@ -23,6 +24,22 @@ $primary : $dark;
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+h1{
+  font-family: 'Poppins', sans-serif ;
+  font-weight: 500 !important;
+  font-size: 2rem !important;
+  color: $dark;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h2, h3, h4, h5{
+  font-family: 'Poppins', sans-serif ;
+  font-size: 1.3rem !important;
+  font-weight: 400 !important;
+}
+
 
 .App-header {
   background-color: #282c34;
@@ -82,4 +99,35 @@ $primary : $dark;
 
 .section{
   margin: 2rem;
+}
+
+.cartContainer{
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+
+.cartListSummary{
+  border-top: 1px solid $dark;
+  border-bottom: 1px solid $dark;
+  padding-bottom: 35px;
+  position: relative;
+  width: 100%;
+}
+
+.text-muted-cart{
+  font-size: 1rem;
+  color: rgba(105, 105, 105, 0.479);
+}
+
+.infoCart{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  border-right:  1px solid $lighter;
+}
+
+.img-cart{
+  max-height: 100px;
+  object-fit: contain;
 }

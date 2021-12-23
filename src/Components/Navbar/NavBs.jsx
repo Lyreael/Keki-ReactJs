@@ -16,17 +16,14 @@ const NavBS = () => {
   return (
 
       <nav className="navbar sticky-lg-top navbar-expand-lg">
-
           <div className="logo"><a className="navbar-brand" href="/#">LOGO </a></div>
           <div className="collapse navbar-collapse main_list" id="navbarNavDropdown">
-
             <NavLink to="/home" > Inicio </NavLink>
             {/* <NavLink to="/category"> Categorías </NavLink>
             { categories.map((category) => <NavLink to={"/category/"+category.id}>{categories.name}</NavLink> ) } 
              */}
-            
             <NavDropdown title="Categorías" id="basic-nav-dropdown">
-              { categories.map((category) => <NavLink to={"/category/"+category.id}>{category.description}</NavLink> ) }  
+              { categories.map((category) => <NavLink key={category.id} to={"/category/"+category.id}>{category.description}</NavLink> ) }  
             </NavDropdown>
 
             <CartWidget />

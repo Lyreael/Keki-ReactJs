@@ -3,6 +3,7 @@ import ItemCount from '../ItemCount'
 import { useContext} from 'react'
 //import { Link } from 'react-router-dom';
 import {CartContext} from '../../context/CartContext';
+import  {FormatAmount}  from '../../utils'
 
 
 
@@ -26,7 +27,7 @@ console.log(cartContext)
             <img className="card-img-top" src={product?.img} alt={product?.name}/>
             <div className="card-body">
             <p className="card-text">{product?.description}</p>
-            <p>{product?.price}</p>
+            <p>$ {FormatAmount(product?.price)}</p>
             {/* <Link className="btn btn-primary" to={`/count/${product.id}`}>Comprar</Link> */}
             {/* { cart ? ( <ItemCount onAdd={onAdd} /> ) : ( <Link className="btn btn-primary" to={'/cart'}>Finalizar compra</Link> ) }  */}
             <ItemCount onAdd={onAdd} /> 
