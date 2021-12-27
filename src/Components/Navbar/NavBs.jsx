@@ -18,7 +18,7 @@ const NavBS = () => {
       <nav className="navbar sticky-lg-top navbar-expand-lg">
           <div className="logo"><a className="navbar-brand" href="/#">LOGO </a></div>
           <div className="collapse navbar-collapse main_list" id="navbarNavDropdown">
-            <NavLink to="/home" > Inicio </NavLink>
+            <NavLink to="/" > Inicio </NavLink>
             {/* <NavLink to="/category"> Categorías </NavLink>
             { categories.map((category) => <NavLink to={"/category/"+category.id}>{categories.name}</NavLink> ) } 
              */}

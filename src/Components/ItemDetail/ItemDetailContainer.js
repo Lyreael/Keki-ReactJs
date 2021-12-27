@@ -3,23 +3,31 @@ import { getProductById } from '../../products'
 import { useParams } from 'react-router-dom'
 import  Loader  from 'react-loader-spinner'
 import ItemDetail from './ItemDetail'
+import { db } from  '../../services/firebase/firebase'
+import { getDoc , doc } from 'firebase/firestore'
 
 
 
 // Componente contenedor -> lleva la logica y pedido de datos al componente que se renderiza
 const ItemDetailContainer = () => {
 
-    const { paramsId } = useParams()
     const [product, setProduct] = useState()
+    const { paramsId } = useParams()
+    const [loading, setLoading] = useState(true)
 
     useEffect  (() => {
-        getProductById(paramsId).then(product => {
-            console.log(product, paramsId)
+        setLoading(true)
+        getDoc(doc(db, 'Items', paramsId)).then((querySnapshot) => {
+            const product = { id: querySnapshot.id, ...querySnapshot.data()}
             setProduct(product)
-        })
-        .catch(error => {
-            console.log(error)
-        })
+        }).catch((error) =>{
+            console.log('Error serching item', error)
+    }) .finally(() => {
+        setLoading(false)
+    }
+
+    )
+
         return () => {
             setProduct()
         }

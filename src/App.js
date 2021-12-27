@@ -4,9 +4,9 @@ import ItemDetailContainer from './components/itemDetail/ItemDetailContainer';
 import ItemCount from './components/ItemCount';
 import ItemListContainer from './components/itemListContainer/ItemListContainer';
 import NavBs from './components/navbar/NavBs';
-import CartView  from './components/cartView/CartView';
+import CartView  from './components/cartView/CartView.js';
 import { BrowserRouter , Route, Switch } from 'react-router-dom';
-import { CartContextProvider } from './context/CartContext';
+import { CartContextProvider } from './context/CartContext.js';
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <BrowserRouter>
           <NavBs />
           <Switch>
-            <Route exact path="/home"> <ItemListContainer /> </Route>
+            <Route exact path="/"> <ItemListContainer /> </Route>
             <Route path="/category/:categoryId"><ItemListContainer /></Route>
             <Route path="/detail/:paramsId"><ItemDetailContainer /></Route>
             <Route path="/count/:paramsId"><ItemCount /></Route>
