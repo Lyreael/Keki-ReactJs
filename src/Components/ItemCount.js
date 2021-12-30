@@ -3,6 +3,9 @@ import './styleCount.scss';
 import { getProductById } from '../products'
 import { useParams } from 'react-router-dom'
 import {CartContext} from '../context/CartContext';
+import { db } from  '../services/firebase/firebase'
+import { getDoc , doc } from 'firebase/firestore'
+
 
 
 const ItemCount = ({initial = 1 , onAdd}) => {
@@ -15,14 +18,13 @@ const ItemCount = ({initial = 1 , onAdd}) => {
     const cartContext = useContext(CartContext)
 
     useEffect  (() => {
-        getProductById(paramsId).then(product => {
-            console.log(product, paramsId)
+        getDoc(doc(db, 'Items', paramsId)).then((querySnapshot) => {
+            const product = { id: querySnapshot.id, ...querySnapshot.data()}
             setProduct(product)
             setStock(product.stock)
-        })
-        .catch(error => {
-            console.log(error)
-        })
+        }).catch((error) =>{
+            console.log('Error serching item', error)
+    })
         return () => {
             setProduct()
         }

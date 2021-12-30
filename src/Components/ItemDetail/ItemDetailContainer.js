@@ -33,11 +33,15 @@ const ItemDetailContainer = () => {
         }
     }, [paramsId])
 
+    if (loading) {
+        return <Loader type="Oval" color="#6868AC" height={80} width={80}/>
+      }
+
     return (
         <div className='section'>
             <div className='row justify-content-center align-items-center'>
                 <h3>Detalles</h3>
-                    { product? <ItemDetail product={product} /> : <Loader type="Oval" color="#6868AC" height={80} width={80}/> }
+                     <ItemDetail product={product} />
             </div>
         </div>
     )
