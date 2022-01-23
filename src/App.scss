@@ -1,23 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 
 $principal: #9292c9;
-$lighter: #fafafa;
-$white: white;
+$lighter: #f9f6ff;
+$white: rgb(249, 249, 255);
 $dark: #6868AC;
 $shadow: #d0d0ff;
+$shat: #d0d0ff4b;
+$shat1: #d0d0ff80;
 $primary : $dark;
+
 
 .App {
   text-align: center;
-  background-color: white;
+  background-color: $white;
   font-family: 'Poppins', sans-serif;
+  width: 100%;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -37,65 +40,62 @@ h1{
 h2, h3, h4, h5{
   font-family: 'Poppins', sans-serif ;
   font-size: 1.3rem !important;
-  font-weight: 400 !important;
-}
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
   color: $dark;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 
-
+// item detail 
 
 .card{
-  background-color: $lighter;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 $shadow;
+  border: 1px solid $shat !important;
+  background-color: $white;
+  border-radius: 0.5rem !important;
+  margin: 2rem !important;
   width: auto;
   height: auto;
   padding: 20px;
   margin: 20px;
   &:hover{
-    box-shadow: 0 4px 15px 0 $shadow;
+    box-shadow: 0 1.5rem 4rem $shat;
   }
   & .btn-primary{
-    background-color: $principal;
+    border-radius: 1.5rem;
+    background-color: $white;
+    color: $principal;
     border-color: $principal;
     &:hover{
       background-color: $primary;
       border-color: $primary;
     }
+    &:active{
+      background-color: $primary;
+      border-color: $primary;
+    }
     &:focus{
       box-shadow: 0 0 0 0.2rem rgba($primary, 0.5) !important;
+      background-color: $shadow!important;
+      border-color: $dark !important;
+  }
+  &:disabled{
+    background-color: $shadow;
+    border-color: $shadow;
   }
   }
   img{
-    max-height: 150px;
-
-    object-fit: contain;
+    max-height: 350px;
+    object-fit: scale-down;
   }
 }
+
+.card-animate{  
+  transition: transform 0.3s;
+  &:hover{
+      transform: translateY(-0.5rem) scale(1.03);
+    }}
 
 .section{
   margin: 2rem;
@@ -106,10 +106,14 @@ h2, h3, h4, h5{
   padding-bottom: 2rem;
 }
 
+
+//cart 
+
 .cartListSummary{
-  border-top: 1px solid $dark;
-  border-bottom: 1px solid $dark;
+  border-top: 1px solid $shadow;
+  border-bottom: 1px solid $shadow;
   padding-bottom: 35px;
+  padding-top: 35px;
   position: relative;
   width: 100%;
 }
@@ -125,9 +129,80 @@ h2, h3, h4, h5{
   flex-direction: column;
   align-items: flex-start;
   border-right:  1px solid $lighter;
+  text-align: center;
 }
 
 .img-cart{
-  max-height: 100px;
-  object-fit: contain;
+  max-height: 125px;
 }
+
+// menu toggler
+
+.navbar-toggler{
+  background-color: grey !important;
+}
+
+
+// loader
+
+.loader{
+margin-top: 25%;
+}
+
+
+//detail 
+.container__detail{
+  background-color: white !important;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content:space-between;
+  margin-top: 10rem !important;
+  box-shadow: 0 1.5rem 4rem $shat;
+  &:hover{
+    box-shadow: 0 1.5rem 4rem $shat1;
+  }
+}
+
+.img__detail{
+  max-height: 350px;
+  border-radius: 1rem;
+  object-fit: scale-down;
+}
+
+.detail__info{
+  border: 1px solid $shat;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.detail__price{
+  text-align: left;
+  font-size: 35px;
+  color: rgb(92, 92, 92) ;
+
+}
+
+.detail__title{
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  color: $dark;
+  text-align: left;
+}
+
+.detail__description{
+  font-family: 'Raleway', sans-serif;
+  text-align: left;
+  font-weight: 400;
+
+}
+
+.detail__count{
+  align-items: center;
+}
+

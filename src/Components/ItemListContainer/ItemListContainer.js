@@ -1,18 +1,16 @@
 import ItemList from "../itemList/ItemList";
 import { useState, useEffect } from "react";
-//import { getProducts, getProductsByCategoryId } from "../../products";
 import  {useParams} from "react-router-dom";
+import { Container } from "react-bootstrap";
 import { db } from '../../services/firebase/firebase'
 import { collection, getDocs, query, where} from 'firebase/firestore'
 import  Loader  from 'react-loader-spinner'
-
 
 export const ItemListContainer = () => {
 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const { categoryId } = useParams()
-
 
   useEffect(() => {
     if (!categoryId){
@@ -46,10 +44,10 @@ export const ItemListContainer = () => {
     })
 }, [categoryId])
 
-
-
 if (loading) {
-  return <Loader type="Oval" color="#6868AC" height={80} width={80}/>
+  return <Container className="loader">
+  <Loader class="" type="Oval" color="#6868AC" height={150} width={150}/>
+</Container>
 }
 
   return (
@@ -59,4 +57,4 @@ if (loading) {
   );
 };
 
-export default ItemListContainer;
+export default ItemListContainer

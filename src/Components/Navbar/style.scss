@@ -1,33 +1,59 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500,700&display=swap');
 
 $dark: #9292c9;
-$lighter: #fafafa;
+$lighter: #e8eafcec;
 $white: white;
 $principal: #6868AC;
-$shadow: #d0d0ff;
+$shadow: #d9d9fcda;
+$move: #b4b4eb;
 $primary : $principal;
+
+.logo{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center !important;
+    font-weight: 900;
+    line-height: 3rem;
+    font-size: 4rem !important;
+    letter-spacing: 15px;
+    padding-left: 0 !important;
+    color: $white !important;
+    span.legend{
+        font-weight: 200;
+        display: block;
+        position: relative;
+        color: $white;
+        font-size: 1.5rem !important;
+        letter-spacing: 22px;
+    }
+    &:hover::before{
+        transform: scaleX(1) !important;
+        transform-origin: bottom left !important;
+    }
+    &::before{
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        inset: 0 0 0 0;
+        background: linear-gradient(to right, $dark, $move) !important;
+        z-index: -1;
+        transition: transform 3s ease;
+    }
+}
 
 nav{
     width: 100%;
-    height: 10rem;
+    height: 100%;
     position: sticky;
     line-height: 65px;
     text-align: center;
     background-color: $dark;
     font-family: 'Poppins', sans-serif;
     color: $white;
-    & div.logo{
-        float: left;
-        width: auto;
-        height: auto;
-        padding-left: 3rem;
-        color: $white;
-    }
-    & div.logo img{
-        width: 100px;
-        height: auto;
-    }
     & div.main_list{
         float: right;
         width: auto;
@@ -40,33 +66,80 @@ nav{
         padding: 0;
         
     }
-    
     a {
         width: auto;
         height: auto;
-        padding: 3rem !important;
+        padding: 1.5rem !important;
+        padding-top: 3rem!important;
         display: block;
         text-decoration: none;
-        color: $white;
-        font-size: 1.2rem;
+        color: $shadow !important;
+        font-size: 1rem;
+        font-weight: 400;
         &:hover{
-            color: $principal !important;
-            background-color: $lighter;
+            color: $white!important;
         }
+        
         &.active{
-            color: $principal;
-            background-color: white;
+            color: $white !important;
+            font-weight: 700;
         }
+        
         &.nav-link{
             color: $lighter;
         }
     }
-    .dropdown .dropdown-menu{
-        background-color: $dark;
-        color: $white;
-        & a{
-            color: $white;
-        }
+}
+.navbar{
+    padding: 0 !important;
+}
 
+.navbar-nav .dropdown-menu{
+    
+    & a{
+        padding: 10px !important;
+    }   
+    margin-top: 0 !important;
+    padding: 0 !important;
+    background-color: $dark;
+    color: $white;
+    border-radius: 0;
+    border: none;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#navbarScroll{
+    flex-grow: 0;
+    align-items: flex-end !important;
+    font-size: 12px;
+    font-weight: 400;
+    position: relative;
+    letter-spacing: 2px;
+    z-index: 1;
+    transition: all 0.5s ease-in-out;
+
+}
+
+.navbar-toggler{
+    border: none !important;
+    background-color: $dark !important;
+    color: $white !important;
+    &:hover{
+        background-color: $principal !important;
+        color: $dark !important;
     }
+}
+
+.dropdown-divider{
+    margin: 0 !important;
+}
+
+@media screen and (max-width: 991px){
+    nav{
+        width: 100%;
+        height: 10rem;
+    }
+    #navbarScroll{
+        background-color: $dark;}
 }

@@ -1,14 +1,14 @@
 import React, {useState, useEffect, } from 'react'
-import { getProductById } from '../../products'
 import { useParams } from 'react-router-dom'
 import  Loader  from 'react-loader-spinner'
+import {Container} from 'react-bootstrap'
 import ItemDetail from './ItemDetail'
 import { db } from  '../../services/firebase/firebase'
 import { getDoc , doc } from 'firebase/firestore'
 
 
 
-// Componente contenedor -> lleva la logica y pedido de datos al componente que se renderiza
+// Componente contenedor -> lleva la lógica y pedido de datos al componente que se renderiza
 const ItemDetailContainer = () => {
 
     const [product, setProduct] = useState()
@@ -22,26 +22,24 @@ const ItemDetailContainer = () => {
             setProduct(product)
         }).catch((error) =>{
             console.log('Error serching item', error)
-    }) .finally(() => {
+    }).finally(() => {
         setLoading(false)
-    }
-
-    )
-
+    })
         return () => {
             setProduct()
         }
     }, [paramsId])
 
     if (loading) {
-        return <Loader type="Oval" color="#6868AC" height={80} width={80}/>
-      }
+        return <Container className="loader">
+        <Loader class="" type="Oval" color="#6868AC" height={150} width={150}/>
+    </Container>
+    }
 
     return (
         <div className='section'>
             <div className='row justify-content-center align-items-center'>
-                <h3>Detalles</h3>
-                     <ItemDetail product={product} />
+                    <ItemDetail product={product} />
             </div>
         </div>
     )

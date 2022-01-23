@@ -2,9 +2,8 @@ import CartWidget  from "./CartWidget";
 import { NavLink } from "react-router-dom";
 import "./style.scss"
 import {useEffect, useState } from "react";
-import { getCategories } from "../../products"; //traigo la promesa de categorias
-import { NavDropdown } from "react-bootstrap";
-
+import { getCategories } from "../../products"; //llamo la promesa de categorias
+import { NavDropdown, Nav, Navbar, Container } from "react-bootstrap";
 
 const NavBS = () => {
   const [categories, setCategories] = useState([])
@@ -14,22 +13,23 @@ const NavBS = () => {
   }, [categories]) 
 
   return (
-
-      <nav className="navbar sticky-lg-top navbar-expand-lg">
-          <div className="logo"><a className="navbar-brand" href="/#">LOGO </a></div>
-          <div className="collapse navbar-collapse main_list" id="navbarNavDropdown">
-            <NavLink to="/" > Inicio </NavLink>
-            {/* <NavLink to="/category"> Categorías </NavLink>
-            { categories.map((category) => <NavLink to={"/category/"+category.id}>{categories.name}</NavLink> ) } 
-             */}
-            <NavDropdown title="Categorías" id="basic-nav-dropdown">
-              { categories.map((category) => <NavLink key={category.id} to={"/category/"+category.id}>{category.description}</NavLink> ) }  
-            </NavDropdown>
-
-            <CartWidget />
-
-          </div>
-      </nav>
+  <Navbar className='text-uppercase'  expand="lg" sticky='top'>
+  <Container>
+    <Navbar.Brand className='logo' href="/home" >KEKI<span className="legend">STORE</span></Navbar.Brand>
+    <Navbar.Toggle aria-controls="navbarScroll" />
+    <Navbar.Collapse id="navbarScroll">
+      <Nav className="me-auto my-2 my-lg-0 navbarScroll "  navbarScroll >
+        
+        <NavLink to='/home'>Inicio</NavLink>
+        <NavDropdown title="Categorias" id="navbarScrollingDropdown">
+                { categories.map((category) => <NavLink key={category.id} to={"/category/"+category.id}>{category.description}
+                <NavDropdown.Divider /> </NavLink>   ) }
+        </NavDropdown>
+        <CartWidget />
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
   );
 };
 

@@ -17,6 +17,7 @@ function App() {
           <NavBs />
           <Switch>
             <Route exact path="/"> <ItemListContainer /> </Route>
+            <Route path="/home"> <ItemListContainer /> </Route>
             <Route path="/category/:categoryId"><ItemListContainer /></Route>
             <Route path="/detail/:paramsId"><ItemDetailContainer /></Route>
             <Route path="/count/:paramsId"><ItemCount /></Route>

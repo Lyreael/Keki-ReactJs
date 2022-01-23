@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+
+
+$principal: #9292c9;
+$lighter: #f9f6ff;
+$white: rgb(249, 249, 255);
+$dark: #6868AC;
+$shadow: #d0d0ff;
+$shadow1: #aeaeec;
+$shat: #d0d0ff4b;
+$shat1: #d0d0ff80;
+$primary : $dark;
+
+
+.title{
+    font-family: 'Roboto Slab', serif;
+}
+
+.list-group{
+    padding: 5px 0 5px 0;
+}
+
+.list-group-item{
+    background-color: $white !important;
+}
+
+.p__Product{
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+    font-weight: 300;
+}
+
+.p__Price{
+    text-align: left !important;
+}
+
+.text-muted-price{
+    font-size: .8rem;
+    line-height: 0.1rem;
+    color: rgba(88, 88, 88, 0.589);
+}
+
+.total_Cart{
+    padding-top: 1rem !important;
+    display: flex !important;
+    justify-content: flex-end;
+    font-size: 1rem !important;
+    font-family: 'Roboto Slab', serif;
+}
+
+.p__Quantity{
+    font-size: 0.8rem !important;
+    font-family: 'Roboto Slab', serif;
+}
+
+.form-cart{ 
+padding: 5rem 0 10rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input{
+    font-family: 'Roboto Slab', serif !important;
+    color: rgba(56, 56, 56, 0.733) !important;
+    margin-bottom: 0.8rem !important;
+    padding-left: 1rem !important;
+}
+
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 25%;
+}
+
+.form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid $shadow;
+    outline: 0;
+    font-size: 1.3rem;
+    color: $white;
+    padding: 7px 0;
+    background: $white;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+        color: transparent;
+    }
+
+    &:placeholder-shown ~ .form__label {
+        font-size: 1.3rem;
+        cursor: text;
+        top: 20px;
+    }
+}
+
+.form__label {
+    font-family: 'Roboto Slab', serif;
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $shadow;
+}
+
+.form__field:focus {
+    ~ .form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 1rem;
+        color: $primary;
+        font-weight:400;    
+    }
+    padding-bottom: 6px;  
+    font-weight: 300;
+    border-width: 3px;
+    border-image: linear-gradient(to right, $primary,$shadow);
+    border-image-slice: 1;
+}
+
+.form__field{
+    &:required,&:invalid { box-shadow:none; }
+}
+
+.btn__buy{
+    font-family: 'Roboto Slab', serif;
+    margin-top: 2rem;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    border-radius: 1.5rem;
+    background-color: $white;
+    color: $principal;
+    border: 2px solid $shadow;
+    &:hover{
+        background-color: $shat1;
+        border-color: $shadow;
+        color: $shadow1;
+        font-weight: 400;
+        box-shadow: 0 1.5rem 4rem $shat1;
+    }
+    &:disabled{
+        background-color: $shat;
+        border: 0;
+        color: white;
+    }
+}
+
+.cart__Success{
+    font-family: "Roboto Slab", serif;
+    margin-top: 15rem;
+    font-size: 20px;
+}
+
+
+.wrapper {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #7ac142;
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards
+}
+
+.checkmark {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    margin: 10% auto;
+    box-shadow: inset 0px 0px 0px #7ac142;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both
+}
+
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards
+}
+
+@keyframes stroke {
+    100% {
+        stroke-dashoffset: 0
+    }
+}
+
+@keyframes scale {
+
+    0%,
+    100% {
+        transform: none
+    }
+
+    50% {
+        transform: scale3d(1.1, 1.1, 1)
+    }
+}
+
+@keyframes fill {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px #7ac142
+    }
+}

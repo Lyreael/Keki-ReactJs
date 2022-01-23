@@ -1,6 +1,5 @@
 import Item from '../item/Item'
 
-
 const ItemList = ({products = []}) => {
     return (
         <div className='row justify-content-center align-items-center'>
@@ -9,4 +8,4 @@ const ItemList = ({products = []}) => {
     )
 }
 
-export default ItemList;
+export default ItemList

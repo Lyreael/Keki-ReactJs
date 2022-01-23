@@ -4,37 +4,39 @@ import { useContext} from 'react'
 //import { Link } from 'react-router-dom';
 import {CartContext} from '../../context/CartContext';
 import  {FormatAmount}  from '../../utils'
+import { Container } from 'react-bootstrap';
 
 
 
 // Componente de presentacion -> recibe datos y los muestra al usuario
 const ItemDetail = ({product}) => {
 
-// const [cart , setCart] = useState(true);
-
 const cartContext = useContext(CartContext)
 
 console.log(cartContext)
     const onAdd = (count) => {
-        //console.log('Agregado al carrito');
         cartContext.addItem(product, count)
     }
-        
 
     return (
-        <div className="card col-4 ">
-            <h5 className="card-title">{product?.name}</h5>
-            <img className="card-img-top" src={product?.img} alt={product?.name}/>
-            <div className="card-body">
-            <p className="card-text">{product?.description}</p>
-            <p>$ {FormatAmount(product?.price)}</p>
-            {/* <Link className="btn btn-primary" to={`/count/${product.id}`}>Comprar</Link> */}
-            {/* { cart ? ( <ItemCount onAdd={onAdd} /> ) : ( <Link className="btn btn-primary" to={'/cart'}>Finalizar compra</Link> ) }  */}
-            <ItemCount onAdd={onAdd} /> 
+        <Container className='container__detail col-lg-5 col-sm-8'>
+
+            <div className='col-lg-5 col-sm-12'>
+                <img className="img__detail" src={product?.img} alt={product?.name}/>
             </div>
-        </div>
+
+            <div className='col-lg-6 col-sm-12 detail__info'>
+                <h3 className='detail__title '>{product.name}</h3>
+                <p className="detail__description">{product?.description}</p>
+                <p className='detail__price'>$ {FormatAmount(product?.price)}</p>
+                <div className='detail__count'>
+                    <ItemCount onAdd={onAdd} /> 
+                </div>
+            </div>
+
+        </Container>
     )
 }
 
-export default ItemDetail;
+export default ItemDetail
 

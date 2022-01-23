@@ -1,5 +1,7 @@
 import React, { useState, } from "react";
 
+
+
 export const CartContext = React.createContext();
 
 export const CartContextProvider =  ({ children }) => {
@@ -23,7 +25,7 @@ const addItem = (item, itemQuantity)  => {
     setProducts(products)
     console.log(products)
 
-    // recalculate products quantity
+// recalculate products quantity
     let _quant = 0
     products.forEach(product => {   _quant += product.quantity })
     setQuantity(_quant)
@@ -42,13 +44,12 @@ const removeItem=(item)  => {
     setProducts(products)
     console.log(products)
 
-    // recalculate products quantity
+// recalculate products quantity
     let quantCounter = 0
     products.forEach(product => {   quantCounter += product.quantity })
     setQuantity(quantCounter)
     setTotal(products.reduce((total, product) => total + product.total, 0))
 }
-
 
 const clear=()  => {
     console.log('Carrito vacio')
@@ -68,8 +69,6 @@ const isInCart = (id) => {
     return products.find(product => product.id === id)
 }
 
-
-
 return (
     <CartContext.Provider value={{ 
         products,
@@ -85,9 +84,3 @@ return (
     </CartContext.Provider>
 )
 }
-
-
-
-
-
-    
